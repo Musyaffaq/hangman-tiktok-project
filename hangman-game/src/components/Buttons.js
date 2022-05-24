@@ -5,10 +5,14 @@ function Buttons({
     updateRight,
     wrong,
     updateWrong,
-    answer,
     mistake,
     updateMistake,
 }) {
+    let answer = "";
+
+    if (sessionStorage.getItem("word")) {
+        answer = sessionStorage.getItem("word");
+    }
     const handleGuess = (e) => {
         if (!answer.split("").includes(e.target.value)) {
             updateMistake(mistake + 1);
