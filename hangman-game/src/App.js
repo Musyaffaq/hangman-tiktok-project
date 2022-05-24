@@ -1,12 +1,14 @@
 import "./App.css";
-import { useState } from "react";
+import { React, useState } from "react";
 import Buttons from "./components/Buttons";
+import ModalCategory from "./components/CategoriesInModal"
+import Blanks from "./components/Hangman"
 
 function App() {
     const [mistake, setMistake] = useState(0);
     const [right, setRight] = useState(new Set());
     const [wrong, setWrong] = useState(new Set());
-    const [answer, setAnswer] = useState("randomWord".toUpperCase());
+    const [answer] = useState("randomWord".toUpperCase());
     // {answer} is the random word chosen
     // replace "randomWord".toUpperCase() with random word function
     // if user guesses a letter correctly (clicks a button), letter is added into {right} prop
@@ -16,9 +18,17 @@ function App() {
 
     return (
         <div className="App">
-            <h1>Hangman Game</h1>
+            <div style={{ backgroundColor: "#90ee90", padding: "10px"}}>
+                <h1>Hangman Game</h1>
+            </div>
+            <br></br>
+            <ModalCategory></ModalCategory>
+            <br></br>
+            <br></br>
             {/* add hangman */}
-            {/* add blanks */}
+            <Blanks></Blanks>
+            <br></br>
+            <br></br>
             <Buttons
                 right={right}
                 updateRight={setRight}

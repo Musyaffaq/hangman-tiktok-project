@@ -20,7 +20,8 @@ function Buttons({
 
     return (
         <div className="container">
-            <div className="keyboard_buttons row mt-3">
+        <div className="row mt-3">
+            <div className="col text-center">
                 {"QWERTYUIOP".split("").map((letter) => (
                     <button
                         type="button"
@@ -35,18 +36,15 @@ function Buttons({
                                 ? "btn-success"
                                 : "btn-outline-dark")
                         }
-                        style={{
-                            height: "8%",
-                            width: "8%",
-                            display: "flex",
-                            justifyContent: "center",
-                        }}
+                        style={{ height: "50px", width: "50px" }}
                     >
                         {letter}
                     </button>
                 ))}
             </div>
-            <div className="keyboard_buttons row mt-3">
+        </div>
+        <div className="row mt-3">
+            <div className="col text-center">
                 {"ASDFGHJKL".split("").map((letter) => (
                     <button
                         type="button"
@@ -61,18 +59,15 @@ function Buttons({
                                 ? "btn-success"
                                 : "btn-outline-dark")
                         }
-                        style={{
-                            height: "8%",
-                            width: "8%",
-                            display: "flex",
-                            justifyContent: "center",
-                        }}
+                        style={{ height: "50px", width: "50px" }}
                     >
                         {letter}
                     </button>
                 ))}
             </div>
-            <div className="keyboard_buttons row mt-3">
+        </div>
+        <div className="row mt-3">
+            <div className="col text-center">
                 {"ZXCVBNM".split("").map((letter) => (
                     <button
                         type="button"
@@ -87,19 +82,15 @@ function Buttons({
                                 ? "btn-success"
                                 : "btn-outline-dark")
                         }
-                        style={{
-                            height: "8%",
-                            width: "8%",
-                            display: "flex",
-                            justifyContent: "center",
-                        }}
+                        style={{ height: "50px", width: "50px" }}
                     >
                         {letter}
                     </button>
                 ))}
             </div>
         </div>
-    );
+    </div>
+    )
 }
 
 export default Buttons;
