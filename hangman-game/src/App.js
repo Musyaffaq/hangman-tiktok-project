@@ -67,13 +67,13 @@ function App() {
             {ans_letters.size !== 0 && right.size >= ans_letters.size ? (
                 <div>
                     <h1>You Win! Good job 👏🏻</h1>
-                    <h2>Games Played: {localStorage.gamesPlayed/2}</h2>
+                    <h2>Games Played: {localStorage.gamesPlayed}</h2>
                     <h2>Win Percentage: {localStorage.gamesPlayed !== '0' ? Math.round((localStorage.gamesWon)/localStorage.gamesPlayed*100) : 0}%</h2>
                 </div>
             ) : mistake >= maxWrong ? (
                 <div>
                     <h1>Aww, you can do better! 💪🏻</h1>
-                    <h2>Games Played: {localStorage.gamesPlayed/2}</h2>
+                    <h2>Games Played: {localStorage.gamesPlayed}</h2>
                     <h2>Win Percentage: {localStorage.gamesPlayed !== '0' ? Math.round((localStorage.gamesWon)/localStorage.gamesPlayed*100) : 0}%</h2>
                 </div>
             ) : answer != "" ? (
