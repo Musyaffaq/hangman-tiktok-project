@@ -3,6 +3,8 @@ import { React, useState } from "react";
 import Buttons from "./components/Buttons";
 import ModalCategory from "./components/CategoriesInModal";
 import Blanks from "./components/Hangman";
+import lossGif from "./gifs/loss.gif"
+import winGif from "./gifs/win.gif"
 
 function App() {
     const [mistake, setMistake] = useState(0);
@@ -67,12 +69,14 @@ function App() {
             {ans_letters.size !== 0 && right.size >= ans_letters.size ? (
                 <div>
                     <h1>You Win! Good job 👏🏻</h1>
+                    <img src={winGif}></img>
                     <h2>Games Played: {localStorage.gamesPlayed}</h2>
                     <h2>Win Percentage: {localStorage.gamesPlayed !== '0' ? Math.round((localStorage.gamesWon)/localStorage.gamesPlayed*100) : 0}%</h2>
                 </div>
             ) : mistake >= maxWrong ? (
                 <div>
                     <h1>Aww, you can do better! 💪🏻</h1>
+                    <img src={lossGif}></img>
                     <h2>Games Played: {localStorage.gamesPlayed}</h2>
                     <h2>Win Percentage: {localStorage.gamesPlayed !== '0' ? Math.round((localStorage.gamesWon)/localStorage.gamesPlayed*100) : 0}%</h2>
                 </div>
