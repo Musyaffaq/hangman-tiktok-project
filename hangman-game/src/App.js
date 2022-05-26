@@ -20,7 +20,31 @@ function App() {
             ans_letters.add(letter);
         });
         console.log(ans_letters);
-    }
+    };
+
+    // to reset the gamesWon and gamesPlayed
+    // localStorage.gamesWon = 0;
+    // localStorage.gamesPlayed = 0;
+
+
+    // store the gamesWon and gamesPlayed
+    if (localStorage.gamesWon) {
+    } else {
+        localStorage.gamesWon = 0;
+    };
+
+    if (localStorage.gamesPlayed) {
+    } else {
+        localStorage.gamesPlayed = 0;
+    };
+
+    // increase gamesWon and gamesPlayed accordingly
+    if (ans_letters.size !== 0 && right.size >= ans_letters.size) {
+        localStorage.gamesPlayed = parseInt(localStorage.gamesPlayed) + 1;
+        localStorage.gamesWon = parseInt(localStorage.gamesWon) + 1;
+    } else if (mistake >= maxWrong) {
+        localStorage.gamesPlayed = parseInt(localStorage.gamesPlayed) + 1;
+    };
 
     // if user guesses a letter correctly (clicks a button), letter is added into {right} prop
     // else, letter is added into {wrong} prop
@@ -41,9 +65,17 @@ function App() {
             <br></br>
             <br></br>
             {ans_letters.size !== 0 && right.size >= ans_letters.size ? (
-                <h1>You Win!</h1>
+                <div>
+                    <h1>You Win! Good job 👏🏻</h1>
+                    <h2>Games Played: {localStorage.gamesPlayed/2}</h2>
+                    <h2>Win Percentage: {localStorage.gamesPlayed !== '0' ? Math.round((localStorage.gamesWon)/localStorage.gamesPlayed*100) : 0}%</h2>
+                </div>
             ) : mistake >= maxWrong ? (
-                <h1>You Lose!</h1>
+                <div>
+                    <h1>Aww, you can do better! 💪🏻</h1>
+                    <h2>Games Played: {localStorage.gamesPlayed/2}</h2>
+                    <h2>Win Percentage: {localStorage.gamesPlayed !== '0' ? Math.round((localStorage.gamesWon)/localStorage.gamesPlayed*100) : 0}%</h2>
+                </div>
             ) : answer != "" ? (
                 <Buttons
                     right={right}
