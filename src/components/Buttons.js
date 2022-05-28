@@ -40,8 +40,8 @@ function Buttons({
                                 : "btn-outline-dark")
                         }
                         style={{
-                            height: "8vw",
-                            width: "8vw",
+                            height: "8%",
+                            width: "8%",
                             display: "flex",
                             justifyContent: "center",
                         }}
@@ -66,8 +66,8 @@ function Buttons({
                                 : "btn-outline-dark")
                         }
                         style={{
-                            height: "8vw",
-                            width: "8vw",
+                            height: "8%",
+                            width: "8%",
                             display: "flex",
                             justifyContent: "center",
                         }}
@@ -92,8 +92,8 @@ function Buttons({
                                 : "btn-outline-dark")
                         }
                         style={{
-                            height: "8vw",
-                            width: "8vw",
+                            height: "8%",
+                            width: "8%",
                             display: "flex",
                             justifyContent: "center",
                         }}
