@@ -12,8 +12,8 @@ import body3 from "./body/body-3.png";
 import body4 from "./body/body-4.png";
 import body5 from "./body/body-5.png";
 import body6 from "./body/body-6.png";
-import lossGif from "./gifs/loss.gif"
-import winGif from "./gifs/win.gif"
+import lossGif from "./gifs/loss.gif";
+import winGif from "./gifs/win.gif";
 
 function App() {
     const [mistake, setMistake] = useState(0);
@@ -31,10 +31,10 @@ function App() {
             ans_letters.add(letter);
         });
         console.log(ans_letters);
-    };
+    }
 
     // body images
-    const body = [body0, body1, body2, body3, body4, body5, body6]
+    const body = [body0, body1, body2, body3, body4, body5, body6];
 
     // to reset the gamesWon and gamesPlayed
     // localStorage.gamesWon = 0;
@@ -44,12 +44,12 @@ function App() {
     if (localStorage.gamesWon) {
     } else {
         localStorage.gamesWon = 0;
-    };
+    }
 
     if (localStorage.gamesPlayed) {
     } else {
         localStorage.gamesPlayed = 0;
-    };
+    }
 
     // increase gamesWon and gamesPlayed accordingly
     if (ans_letters.size !== 0 && right.size >= ans_letters.size) {
@@ -57,7 +57,7 @@ function App() {
         localStorage.gamesWon = parseInt(localStorage.gamesWon) + 1;
     } else if (mistake >= maxWrong) {
         localStorage.gamesPlayed = parseInt(localStorage.gamesPlayed) + 1;
-    };
+    }
 
     // if user guesses a letter correctly (clicks a button), letter is added into {right} prop
     // else, letter is added into {wrong} prop
@@ -70,39 +70,60 @@ function App() {
                 <h1>Hangman Game</h1>
             </div>
             <div className="gameBody">
-            <br></br>
-            <ModalCategory></ModalCategory>
-            <img src={body[mistake]}></img>
-            <Blanks right={right}></Blanks>
-            <br></br>
-            <br></br>
-            {ans_letters.size !== 0 && right.size >= ans_letters.size ? (
-                <div>
-                    <h1>You Win! Good job 👏🏻</h1>
-                    <img src={winGif}></img>
-                    <h2>Games Played: {localStorage.gamesPlayed}</h2>
-                    <h2>Win Percentage: {localStorage.gamesPlayed !== '0' ? Math.round((localStorage.gamesWon)/localStorage.gamesPlayed*100) : 0}%</h2>
-                </div>
-            ) : mistake >= maxWrong ? (
-                <div>
-                    <h1>Aww, you can do better! 💪🏻</h1>
-                    <img src={lossGif}></img>
-                    <h2>Games Played: {localStorage.gamesPlayed}</h2>
-                    <h2>Win Percentage: {localStorage.gamesPlayed !== '0' ? Math.round((localStorage.gamesWon)/localStorage.gamesPlayed*100) : 0}%</h2>
-                </div>
-            ) : answer !== "" ? (
-                <Buttons
-                    right={right}
-                    updateRight={setRight}
-                    wrong={wrong}
-                    updateWrong={setWrong}
-                    mistake={mistake}
-                    updateMistake={setMistake}
-                />
-            ) : (
-                <p></p>
-            )}
-            {/* add reset */}
+                <br></br>
+                <ModalCategory></ModalCategory>
+                <img src={body[mistake]}></img>
+                <Blanks right={right}></Blanks>
+                <br></br>
+                <br></br>
+                {ans_letters.size !== 0 && right.size >= ans_letters.size ? (
+                    <div>
+                        <h1>You Win! Good job 👏🏻</h1>
+                        <img src={winGif}></img>
+                        <h2>Games Played: {localStorage.gamesPlayed}</h2>
+                        <h2>
+                            Win Percentage:{" "}
+                            {localStorage.gamesPlayed !== "0"
+                                ? Math.round(
+                                      (localStorage.gamesWon /
+                                          localStorage.gamesPlayed) *
+                                          100
+                                  )
+                                : 0}
+                            %
+                        </h2>
+                    </div>
+                ) : mistake >= maxWrong ? (
+                    <div>
+                        <h1>Aww, you can do better! 💪🏻</h1>
+                        <h1>The word was {answer}</h1>
+                        <img src={lossGif}></img>
+                        <h2>Games Played: {localStorage.gamesPlayed}</h2>
+                        <h2>
+                            Win Percentage:{" "}
+                            {localStorage.gamesPlayed !== "0"
+                                ? Math.round(
+                                      (localStorage.gamesWon /
+                                          localStorage.gamesPlayed) *
+                                          100
+                                  )
+                                : 0}
+                            %
+                        </h2>
+                    </div>
+                ) : answer !== "" ? (
+                    <Buttons
+                        right={right}
+                        updateRight={setRight}
+                        wrong={wrong}
+                        updateWrong={setWrong}
+                        mistake={mistake}
+                        updateMistake={setMistake}
+                    />
+                ) : (
+                    <p></p>
+                )}
+                {/* add reset */}
             </div>
         </div>
     );
