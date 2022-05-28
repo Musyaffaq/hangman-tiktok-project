@@ -3,6 +3,15 @@ import { React, useState } from "react";
 import Buttons from "./components/Buttons";
 import ModalCategory from "./components/CategoriesInModal";
 import Blanks from "./components/Hangman";
+
+// images
+import body1 from "./body/body-1.png";
+import body0 from "./body/body-0.png";
+import body2 from "./body/body-2.png";
+import body3 from "./body/body-3.png";
+import body4 from "./body/body-4.png";
+import body5 from "./body/body-5.png";
+import body6 from "./body/body-6.png";
 import lossGif from "./gifs/loss.gif"
 import winGif from "./gifs/win.gif"
 
@@ -24,10 +33,12 @@ function App() {
         console.log(ans_letters);
     };
 
+    // body images
+    const body = [body0, body1, body2, body3, body4, body5, body6]
+
     // to reset the gamesWon and gamesPlayed
     // localStorage.gamesWon = 0;
     // localStorage.gamesPlayed = 0;
-
 
     // store the gamesWon and gamesPlayed
     if (localStorage.gamesWon) {
@@ -58,11 +69,10 @@ function App() {
             <div style={{ backgroundColor: "#90ee90", padding: "10px" }}>
                 <h1>Hangman Game</h1>
             </div>
+            <div className="gameBody">
             <br></br>
             <ModalCategory></ModalCategory>
-            <br></br>
-            <br></br>
-            {/* add hangman */}
+            <img src={body[mistake]}></img>
             <Blanks right={right}></Blanks>
             <br></br>
             <br></br>
@@ -80,7 +90,7 @@ function App() {
                     <h2>Games Played: {localStorage.gamesPlayed}</h2>
                     <h2>Win Percentage: {localStorage.gamesPlayed !== '0' ? Math.round((localStorage.gamesWon)/localStorage.gamesPlayed*100) : 0}%</h2>
                 </div>
-            ) : answer != "" ? (
+            ) : answer !== "" ? (
                 <Buttons
                     right={right}
                     updateRight={setRight}
@@ -93,6 +103,7 @@ function App() {
                 <p></p>
             )}
             {/* add reset */}
+            </div>
         </div>
     );
 }

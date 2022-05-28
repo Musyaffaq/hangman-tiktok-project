@@ -11,7 +11,7 @@ const Blanks = (props) => {
         var category_str =
             "The category you have chosen is " +
             sessionStorage.getItem("category") +
-            ". Guess the word ?";
+            ". Guess the word!";
         string = word
             .split("")
             .map((letter) => (props.right.has(letter) ? letter : " _ "));
