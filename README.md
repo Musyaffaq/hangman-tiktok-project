@@ -1,4 +1,7 @@
-# Getting Started with Create React App
+# Hangman Game - TikTok Youth Camp 2022
+This project was created as part of the TikTok Youth Camp 2022. You can play the game by [clicking here](https://main.d3m47a6esci1gu.amplifyapp.com/).
+
+## Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
